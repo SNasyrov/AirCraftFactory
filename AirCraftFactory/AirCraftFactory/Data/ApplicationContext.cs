@@ -5,11 +5,11 @@ namespace AirCraftFactory.Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Air> Airs { get; set; }
+        public DbSet<Air> Air { get; set; }
 
         public DbSet<AirType> AirTypes { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
 
@@ -26,7 +26,7 @@ namespace AirCraftFactory.Data
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureCreated();   // создаем базу данных при первом обращении
+            //Database.EnsureCreated();   // создаем базу данных при первом обращении
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

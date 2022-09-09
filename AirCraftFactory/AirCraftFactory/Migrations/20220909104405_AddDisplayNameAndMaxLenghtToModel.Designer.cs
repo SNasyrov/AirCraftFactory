@@ -4,6 +4,7 @@ using AirCraftFactory.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirCraftFactory.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220909104405_AddDisplayNameAndMaxLenghtToModel")]
+    partial class AddDisplayNameAndMaxLenghtToModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +50,7 @@ namespace AirCraftFactory.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Air");
+                    b.ToTable("Airs");
                 });
 
             modelBuilder.Entity("AirCraftFactory.Models.AirType", b =>
@@ -304,7 +306,7 @@ namespace AirCraftFactory.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("AirCraftFactory.Models.UserRole", b =>

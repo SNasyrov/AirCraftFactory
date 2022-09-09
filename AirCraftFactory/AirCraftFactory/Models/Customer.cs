@@ -1,4 +1,6 @@
-﻿namespace AirCraftFactory.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AirCraftFactory.Models
 {
     /// <summary>
     /// Модель заказчика
@@ -13,16 +15,19 @@
         /// <summary>
         /// Ид пользователя
         /// </summary>
+        [Display(Name = "Ид пользователя")]
         public int UserId { get; set; }
 
         /// <summary>
         /// Баланс
         /// </summary>
+        [Display(Name = "Баланс")]
         public decimal Balance { get; set; }
 
         /// <summary>
         /// Подтвержден? 
         /// </summary>
-        public bool IsConfirmed { get; set; }
+        [Display(Name = "Подтвержден")]
+        public bool IsConfirmed { get; set; } = false;
     }
 }
