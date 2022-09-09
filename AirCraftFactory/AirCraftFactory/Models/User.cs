@@ -23,10 +23,9 @@ namespace AirCraftFactory.Models
         /// <summary>
         /// Почта
         /// </summary>
-        [Required(ErrorMessage = "Поле почта не может быть пустым")]
         [MaxLength(40)]
         [Display(Name = "Почта")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         /// <summary>
         /// Пароль
@@ -39,46 +38,44 @@ namespace AirCraftFactory.Models
         /// <summary>
         /// Имя
         /// </summary>
-        [Required(ErrorMessage = "Поле имя не может быть пустым")]
         [MaxLength(20)]
         [Display(Name = "Имя")]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         /// <summary>
         /// Фамилия
         /// </summary>
-        [Required(ErrorMessage = "Поле фамилия не может быть пустым")]
         [MaxLength(20)]
         [Display(Name = "Фамилия")]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
         /// <summary>
         /// Отчество
         /// </summary>
         [MaxLength(20)]
         [Display(Name = "Отчество")]
-        public string MiddleName { get; set; }
+        public string? MiddleName { get; set; }
 
         /// <summary>
         /// Фамилия И.О
         /// </summary>
         [MaxLength(20)]
         [Display(Name = "Фамилия И.О")]
-        public string ComposedName { get; set; }
+        public string? ComposedName { get; set; }
 
         /// <summary>
         /// Создан
         /// </summary>
         [Display(Name = "Дата создания")]
         [DataType(DataType.Date)]
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         /// <summary>
         /// Обновлен
         /// </summary>
         [Display(Name = "Дата обновления")]
         [DataType(DataType.Date)]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         /// <summary>
         /// Подтвержден? 

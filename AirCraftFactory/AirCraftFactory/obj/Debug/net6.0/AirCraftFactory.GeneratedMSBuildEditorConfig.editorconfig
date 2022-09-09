@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\CourseWork\AirCraftFactory\AirCraftFactory\AirCraftFactory
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/CourseWork/AirCraftFactory/AirCraftFactory/AirCraftFactory/Views/Authorization/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yaXphdGlvblxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CourseWork/AirCraftFactory/AirCraftFactory/AirCraftFactory/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
