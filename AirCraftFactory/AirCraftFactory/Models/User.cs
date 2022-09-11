@@ -82,5 +82,12 @@ namespace AirCraftFactory.Models
         /// </summary>
         [Display(Name = "Подтвержден")]
         public bool IsConfirmed { get; set; } = false;
+
+        /// <summary>
+        /// Код авторизации
+        /// </summary>
+        [Display(Name = "Код авторизации")]
+        [MaxLength(15)]
+        public string? AuthorizationCode { get; set; }
     }
 }

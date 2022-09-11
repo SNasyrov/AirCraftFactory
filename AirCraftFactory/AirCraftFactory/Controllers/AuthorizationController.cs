@@ -1,4 +1,5 @@
 ﻿using AirCraftFactory.Data;
+using AirCraftFactory.Helpers;
 using AirCraftFactory.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,25 +37,38 @@ namespace AirCraftFactory.Controllers
 
                 var user = _db.User.FirstOrDefault(x => x.Login == model.Login);
 
-                if (user.Password != model.Password)
-                    ModelState.AddModelError("Password", "Неверный пароль");
-
                 if (user == null)
                     throw new Exception();
+
+                if (user.Password != model.Password)
+                    ModelState.AddModelError("Password", "Неверный пароль");
 
                 if (!ModelState.IsValid)
                     return View(model);
 
-                var authorized = true;
-                // Добавляем в куки ключ - логин пользователя, значение - авторизован или нет
-                Response.Cookies.Append(model.Login, authorized.ToString());
-                return RedirectToAction("Index","Home");
+                CookiesHelper.SetCookieValue(user, Response);
+
+                await _db.SaveChangesAsync();
+
+                return RedirectToAction("Test","Home");
             }
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = "Такого пользователя не существует";
                 return View(model);
             }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            Request.Cookies.TryGetValue("Authorization", out string? code);
+            var user = _db.User.FirstOrDefault(u => u.AuthorizationCode == code);
+            user.AuthorizationCode = null;
+            await _db.SaveChangesAsync();
+            Response.Cookies.Delete("Authorization");
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
